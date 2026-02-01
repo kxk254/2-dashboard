@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NotificationDropdown from "@/src/components/header/NotificationDropdown";
+import UserDropdown from "@/src/components/header/UserDropdown";
 
 export default function AppHeader() {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
@@ -94,7 +95,7 @@ export default function AppHeader() {
             <NotificationDropdown />
           </div>
           {/* User Area */}
-          User-button
+          <UserDropdown />
         </div>
       </div>
     </header>
