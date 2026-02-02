@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/src/context/ThemeContext";
+import { SidebarProvider } from "@/src/context/SidebarContext";
 
 const notoSans = Noto_Sans_JP({
   subsets: ["latin", "japanese"],
@@ -21,9 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider>
-        <body className={`${notoSans.variable}  antialiased`}>{children}</body>
-      </ThemeProvider>
+      <body className={`${notoSans.variable}  antialiased`}>
+        <ThemeProvider>
+          <SidebarProvider> {children}</SidebarProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
