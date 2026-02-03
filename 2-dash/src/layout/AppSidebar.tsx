@@ -29,7 +29,18 @@ const NavItems: NavItem[] = [];
 const othersItems: NavItem[] = [];
 
 const AppSidebar: React.FC = () => {
-  const renderMenuItems = () => <div>Menu Item</div>;
+  const renderMenuItems = () => (
+    <>
+      <ul>
+        {/* map nav items via [NavItems] */}
+        <li>
+          <button>
+            <span></span>
+          </button>
+        </li>
+      </ul>
+    </>
+  );
   const [openSubmenu, setOpenSubmenu] = useState<{} | null>(null);
   const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>(
     {},
@@ -61,9 +72,11 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside>
+      {/* aside is semantics for sidebar */}
       <div>
         <Link>
           <>
+            {/* image logo wide or mobile */}
             <Image />
             <Image />
           </>
@@ -73,16 +86,20 @@ const AppSidebar: React.FC = () => {
         <nav>
           <div>
             <div>
+              {/* menu or horizontal dots */}
               <h2></h2>
               main-manuitems
             </div>
 
             <div>
+              {/* others or horizontal dots */}
               <h2></h2>
+              {/* rendering other menu items here */}
               othersItems
             </div>
           </div>
         </nav>
+        {/* sidebar widget */}
         sidebarwidget
       </div>
     </aside>
