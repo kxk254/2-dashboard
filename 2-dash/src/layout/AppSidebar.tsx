@@ -24,20 +24,68 @@ type NavItem = {
   subItems?: { name: string; path: string; pro?: boolean; new?: boolean }[];
 };
 
-const NavItems: NavItem[] = [];
+const NavItems: NavItem[] = [
+  {
+    icon: <GridIcon />,
+    name: "Dashboard",
+    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+  },
+  {
+    icon: <CalenderIcon />,
+    name: "Calender",
+    path: "/calender",
+  },
+];
 
-const othersItems: NavItem[] = [];
+const othersItems: NavItem[] = [
+  {
+    icon: <PieChartIcon />,
+    name: "Charts",
+    subItems: [
+      { name: "Line Chart", path: "/line-chart", pro: false },
+      { name: "Bar Chart", path: "/bar-chart", pro: false },
+    ],
+  },
+];
 
 const AppSidebar: React.FC = () => {
   const renderMenuItems = () => (
     <>
       <ul>
         {/* map nav items via [NavItems] */}
-        <li>
-          <button>
-            <span></span>
-          </button>
-        </li>
+        {navItems.map((nav, index) => (
+          <li key={nav.name}>
+            {nav.subItems ? (
+              <button>
+                <span></span>
+              </button>
+            ) : (
+              nav.path && (
+                <Link>
+                  <span></span>
+                  <span></span>
+                </Link>
+              )
+            )}
+            {/* subItem nav bar */}
+            {nav.subItems && (isExpanded || isHovered || isMobileOpen) && (
+              <div>
+                <ul>
+                  {nav.subItems.map((subItem) => (
+                    <li>
+                      <Link>
+                        <span>
+                          <span></span>
+                          <span></span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+        ))}
       </ul>
     </>
   );
