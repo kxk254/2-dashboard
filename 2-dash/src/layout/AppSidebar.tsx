@@ -24,12 +24,71 @@ type NavItem = {
   subItems?: { name: string; path: string; pro?: boolean; new?: boolean }[];
 };
 
-const NavItems: NavItem[] = [];
+const NavItems: NavItem[] = [
+  {
+    icon: <GridIcon />,
+    name: "Dashboard",
+    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+  },
+  {
+    icon: <CalenderIcon />,
+    name: "Calender",
+    path: "/calender",
+  },
+];
 
-const othersItems: NavItem[] = [];
+const othersItems: NavItem[] = [
+  {
+    icon: <PieChartIcon />,
+    name: "Charts",
+    subItems: [
+      { name: "Line Chart", path: "/line-chart", pro: false },
+      { name: "Bar Chart", path: "/bar-chart", pro: false },
+    ],
+  },
+];
 
 const AppSidebar: React.FC = () => {
-  const renderMenuItems = () => <div>Menu Item</div>;
+  const renderMenuItems = () => (
+    <>
+      <ul>
+        {/* map nav items via [NavItems] */}
+        {navItems.map((nav, index) => (
+          <li key={nav.name}>
+            {nav.subItems ? (
+              <button>
+                <span></span>
+              </button>
+            ) : (
+              nav.path && (
+                <Link>
+                  <span></span>
+                  <span></span>
+                </Link>
+              )
+            )}
+            {/* subItem nav bar */}
+            {nav.subItems && (isExpanded || isHovered || isMobileOpen) && (
+              <div>
+                <ul>
+                  {nav.subItems.map((subItem) => (
+                    <li>
+                      <Link>
+                        <span>
+                          <span></span>
+                          <span></span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
   const [openSubmenu, setOpenSubmenu] = useState<{} | null>(null);
   const [subMenuHeight, setSubMenuHeight] = useState<Record<string, number>>(
     {},
@@ -61,9 +120,11 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside>
+      {/* aside is semantics for sidebar */}
       <div>
         <Link>
           <>
+            {/* image logo wide or mobile */}
             <Image />
             <Image />
           </>
@@ -73,16 +134,20 @@ const AppSidebar: React.FC = () => {
         <nav>
           <div>
             <div>
+              {/* menu or horizontal dots */}
               <h2></h2>
               main-manuitems
             </div>
 
             <div>
+              {/* others or horizontal dots */}
               <h2></h2>
+              {/* rendering other menu items here */}
               othersItems
             </div>
           </div>
         </nav>
+        {/* sidebar widget */}
         sidebarwidget
       </div>
     </aside>
