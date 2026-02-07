@@ -13,7 +13,7 @@ export default function NotFound() {
         <p>We can't seem to find the page you are looking for!</p>
         <Link>Back to Home Page</Link>
       </div>
-      <p>&copy; {new date().getFullYear()} - TailAdmin</p>
+      <p>&copy; {new Date().getFullYear()} - TailAdmin</p>
     </div>
   );
 }
