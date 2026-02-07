@@ -17,7 +17,7 @@ import {
   PlugInIcon,
   TableIcon,
   UserCircleIcon,
-} from "@/src/icons";
+} from "@/icons";
 
 type NavItem = {
   name: string;
@@ -128,8 +128,8 @@ const AppSidebar: React.FC = () => {
         <Link href="/">
           <>
             {/* image logo wide or mobile */}
-            <Image />
-            <Image />
+            {/* <Image />
+            <Image />*/}
           </>
         </Link>
       </div>
