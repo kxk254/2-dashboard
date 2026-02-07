@@ -8,7 +8,7 @@ interface BreadcrumbProps {
 const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
   return (
     <div>
-      <h2></h2>
+      <h2>{pageTitle}</h2>
       <nav>
         <ol>
           <li>
@@ -17,7 +17,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
               <svg></svg>
             </Link>
           </li>
-          <li></li>
+          <li>{pageTitle}</li>
         </ol>
       </nav>
     </div>

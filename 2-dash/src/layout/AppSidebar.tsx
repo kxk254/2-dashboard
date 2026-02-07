@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallbacl } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useSidebar } from "../context/SidebarContext";
 import {
   BoxCubeIcon,
   CalenderIcon,
@@ -49,6 +51,9 @@ const othersItems: NavItem[] = [
 ];
 
 const AppSidebar: React.FC = () => {
+  const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
+  const pathname = usePathname();
+
   const renderMenuItems = () => (
     <>
       <ul>
@@ -60,12 +65,10 @@ const AppSidebar: React.FC = () => {
                 <span></span>
               </button>
             ) : (
-              nav.path && (
-                <Link>
-                  <span></span>
-                  <span></span>
-                </Link>
-              )
+              <Link>
+                <span></span>
+                <span></span>
+              </Link>
             )}
             {/* subItem nav bar */}
             {nav.subItems && (isExpanded || isHovered || isMobileOpen) && (
@@ -122,7 +125,7 @@ const AppSidebar: React.FC = () => {
     <aside>
       {/* aside is semantics for sidebar */}
       <div>
-        <Link>
+        <Link href="/">
           <>
             {/* image logo wide or mobile */}
             <Image />
