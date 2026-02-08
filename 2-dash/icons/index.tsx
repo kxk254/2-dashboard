@@ -47,13 +47,19 @@ import BoxCubeIcon from "./box-cube.svg";
 import PlugInIcon from "./plug-in.svg";
 import DocsIcon from "./docs.svg";
 import MailIcon from "./mail-line.svg";
-import HorizontaLDots from "./horizontal-dots.svg";
+import HorizontalDots from "./horizontal-dots.svg";
 import ChatIcon from "./chat.svg";
 import MoreDotIcon from "./more-dot.svg";
 import BellIcon from "./bell.svg";
 import BarsStaggered from "./bars-staggered.svg";
 import CrossIcon from "./cross.svg";
 import ThreeDotsIcon from "./three-dots.svg";
+import SearchIcon from "./search.svg";
+import SignOutIcon from "./sign-out.svg";
+import SettingIcon from "./settings.svg";
+import BrightnessIcon from "./brightness.svg";
+import MoonIcon from "./moon.svg";
+import NoticeBellIcon from "./notice-bell.svg";
 
 export {
   DownloadIcon,
@@ -106,10 +112,16 @@ export {
   PlugInIcon,
   DocsIcon,
   MailIcon,
-  HorizontaLDots,
+  HorizontalDots,
   ChevronUpIcon,
   ChatIcon,
   BarsStaggered,
   ThreeDotsIcon,
   CrossIcon,
+  SearchIcon,
+  SignOutIcon,
+  SettingIcon,
+  BrightnessIcon,
+  MoonIcon,
+  NoticeBellIcon,
 };

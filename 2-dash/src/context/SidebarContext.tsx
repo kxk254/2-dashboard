@@ -57,7 +57,7 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const toggleMobileSidebar = () => {
-    setIsMobileOpen((prev = !prev));
+    setIsMobileOpen((prev) => !prev);
   };
 
   const toggleSubmenu = (item: string) => {
@@ -79,8 +79,7 @@ export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
         toggleSubmenu,
       }}
     >
-      {" "}
-      sidebar {children}{" "}
+      {children}
     </SidebarContext.Provider>
   );
 };
