@@ -51,6 +51,9 @@ import HorizontaLDots from "./horizontal-dots.svg";
 import ChatIcon from "./chat.svg";
 import MoreDotIcon from "./more-dot.svg";
 import BellIcon from "./bell.svg";
+import BarsStaggered from "./bars-staggered.svg";
+import CrossIcon from "./cross.svg";
+import ThreeDotsIcon from "./three-dots.svg";
 
 export {
   DownloadIcon,
@@ -106,4 +109,7 @@ export {
   HorizontaLDots,
   ChevronUpIcon,
   ChatIcon,
+  BarsStaggered,
+  ThreeDotsIcon,
+  CrossIcon,
 };
