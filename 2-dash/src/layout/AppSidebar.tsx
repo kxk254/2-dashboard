@@ -17,7 +17,7 @@ import {
   PlugInIcon,
   TableIcon,
   UserCircleIcon,
-} from "@/icons";
+} from "@/icons/index";
 
 type NavItem = {
   name: string;

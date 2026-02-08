@@ -5,10 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import NotificationDropdown from "@/src/components/header/NotificationDropdown";
 import UserDropdown from "@/src/components/header/UserDropdown";
+import { ThemeToggleButton } from "@/src/components/common/ThemeToggleButton";
+import { useSidebar } from "@/src/context/SidebarContext";
+import { BarsStaggered, CrossIcon, ThreeDotsIcon } from "@/icons/index";
 
-export default function AppHeader() {
+const AppHeader: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
-  // const { isMobileOpen, toggelSidebar, toggleMobileSidebar } = useSidebar();
+  const { isMobileOpen, toggelSidebar, toggleMobileSidebar } = useSidebar();
   const handleToggle = () => {
     if (window.innerWidth <= 1024) {
       toggleSidebar();
@@ -38,22 +41,32 @@ export default function AppHeader() {
   }, []);
 
   return (
-    <header className="sticky top-0 flex w-full border-gray-200 z-9999">
+    <header className="sticky top-0 flex w-full border-gray-200 z-9999 dark:border-gray-800 dark:bg-gray-900 lg:border-b">
       <div className="flex flex-col items-center justify-between grow lg:flex-row lg:px-6">
         {/* left side */}
-        <div className="flex items-center justify-between w-full gap-2">
-          <button className="items-center justify-center w-10 h-10">
-            <Image
-              src="/header/bars-staggered.svg"
-              alt="menu-bae"
-              width={24}
-              height={24}
-            />
+        <div className="flex items-center justify-between w-full gap-2 px-3 py-3 border-b border-gray-200 dark:border-gray-800 sm:gap-4 lg:justify-normal lg:border-b-0 lg:py-4">
+          <button className="item-center justify-center w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-9999 dark:border-gray-800 lg:flex dark:text-gray-400 lg:h-11 lg:w-11 lg:border">
+            {isMobileOpen ? <CrossIcon /> : <BarsStaggered />}
+          </button>
 
-            {/* page icon for mogile */}
-            <Link href="/" className="lg:hidden">
-              icon
-            </Link>
+          {/* page icon for mogile */}
+          <Link href="/" className="lg:hidden">
+            <Image
+              width={154}
+              height={32}
+              className="dark:hidden"
+              src="/images/logo/logo.svg"
+              alt="logo"
+            />
+            <Image
+              width={154}
+              height={32}
+              className="hidden dark:block"
+              src="/images/logo/logo-dark.svg"
+            />
+          </Link>
+          <button>
+            <ThreeDotsIcon />
           </button>
 
           {/* look up hidden */}
@@ -100,4 +113,6 @@ export default function AppHeader() {
       </div>
     </header>
   );
-}
+};
+
+export default AppHeader;
