@@ -43,7 +43,7 @@ export default function DemographicCard() {
           <div>
             <div>
               <div>
-                <Image />
+                <img />
               </div>
               <div>
                 <p></p>
@@ -60,7 +60,7 @@ export default function DemographicCard() {
           <div>
             <div>
               <div>
-                <Image />
+                <img />
               </div>
             </div>
             <div>
