@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSans.variable}  antialiased`}>
+      <body className={`${notoSans.className}  antialiased`}>
         <ThemeProvider>
           <SidebarProvider> {children}</SidebarProvider>
         </ThemeProvider>

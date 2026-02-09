@@ -8,7 +8,7 @@ import { useSidebar } from "../context/SidebarContext";
 import {
   BoxCubeIcon,
   CalenderIcon,
-  ChvronDownIcon,
+  ChevronDownIcon,
   GridIcon,
   HorizontalDots,
   ListIcon,
@@ -107,24 +107,84 @@ const AppSidebar: React.FC = () => {
       {navItems.map((nav, index) => (
         <li key={nav.name}>
           {nav.subItems ? (
-            <button>
-              <span>{nav.icon}</span>
+            <button
+              onClick={() => handleSubmenuToggle(index, menyType)}
+              className={`menu-item group ${
+                openSubmenu?.type === menuType && openSubmenu?.index === index
+                  ? "menu-item-active"
+                  : "meny-item-inactive"
+              } cursor-pointer ${
+                !isExpanded && !isHovered
+                  ? "lg:justify-center"
+                  : "lg:justify-start"
+              }`}
+            >
+              <span
+                className={`${
+                  openSubmenu?.type === menuType && openSubmenu?.index === index
+                    ? "meny-item-icon-active"
+                    : "menu-item-icon-inactive"
+                }`}
+              >
+                {nav.icon}
+              </span>
+              {(isExpanded || isHovered || isMobileOpen) && (
+                <span className={`menu-item-text`}>{nav.name}</span>
+              )}
+              {(isExpanded || isHovered || isMobileOpen) && (
+                <ChevronDownIcon
+                  className={`ml-auto w-5 h-5 transition-transform duration-200 ${
+                    openSubmenu?.type === menuType &&
+                    openSubmenu?.index === index
+                      ? "rotate-180 text-brand-500"
+                      : ""
+                  }`}
+                />
+              )}
             </button>
           ) : (
-            <Link>
-              <span>{nav.icon}</span>
-              <span>{nav.name}</span>
-            </Link>
+            nav.path && (
+              <Link
+                href={nav.path}
+                className={`menu-item group ${
+                  isActive(nav.path) ? "menu-item-active" : "menu-item-inactive"
+                }`}
+              >
+                <span
+                  className={`${
+                    isActive(nav.path)
+                      ? "menu-item-icon-active"
+                      : "menu-item-icon-inactive"
+                  }`}
+                >
+                  {nav.icon}
+                </span>
+                {(isExpanded || isHovered || isMobileOpen) && (
+                  <span className={`menu-item-text`}>{nav.name}</span>
+                )}
+              </Link>
+            )
           )}
           {/* subItem nav bar */}
           {nav.subItems && (isExpanded || isHovered || isMobileOpen) && (
-            <div>
-              <ul>
+            <div
+              ref={(el) => {
+                subMenuRefs.current[`${menuType}-${index}`] = el;
+              }}
+              className="overflow-hidden transition-all duration-300"
+              style={{
+                height:
+                  openSubmenu?.type === menuType && openSubmenu?.index === index
+                    ? `${subMenuHeight[`${menuType}-${index}`]}px`
+                    : "0px",
+              }}
+            >
+              <ul className="mt-2 space-y-2 mll-9">
                 {nav.subItems.map((subItem) => (
                   <li key={subItem.name}>
                     <Link
                       href={subItem.path}
-                      className={`meny-dropdown-item ${
+                      className={`menu-dropdown-item ${
                         isActive(subItem.path)
                           ? "menu-dropdown-item-active"
                           : "menu-dropdown-item-inactive"
@@ -176,7 +236,7 @@ const AppSidebar: React.FC = () => {
 
   // Check if the current path matches any submeny item
   useEffect(() => {
-    let submenuMatched = false;
+    let subMenuMatched = false;
     ["main", "others"].forEach((menuType) => {
       const items = menuType === "main" ? navItems : othersItems;
       items.forEach((nav, index) => {
@@ -184,7 +244,7 @@ const AppSidebar: React.FC = () => {
           nav.subItems.forEach((subItem) => {
             if (isActive(subItem.path)) {
               setOpenSubmenu({ type: menuType as "main" | "others", index });
-              submenuMatched = true;
+              subMenuMatched = true;
             }
           });
         }
@@ -192,7 +252,7 @@ const AppSidebar: React.FC = () => {
     });
 
     //If no submenu item matches, close the open submenu
-    if (!submenuMatched) {
+    if (!subMenuMatched) {
       setOpenSubmenu(null);
     }
   }, [pathname, isActive]);
@@ -271,16 +331,28 @@ const AppSidebar: React.FC = () => {
           )}
         </Link>
       </div>
-      <div>
-        <nav>
-          <div>
+      <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
+        <nav className="mb-6">
+          <div className="flex flex-col gap-4">
             <div>
               {/* menu or horizontal dots */}
-              <h2></h2>
-              main-manuitems
+              <h2
+                className={`mb-4 tet-xs uppercase flex leadin-[20px] text-gray-400 ${
+                  !isExpanded && !isHovered
+                    ? "lg:justify-center"
+                    : "justify-start"
+                }`}
+              >
+                {isExpanded || isHovered || isMobileOpen ? (
+                  "Menu"
+                ) : (
+                  <HorizontalDots />
+                )}
+              </h2>
+              {renderMenuItems(navItems, "main")}
             </div>
 
-            <div>
+            <div className="">
               {/* others or horizontal dots */}
               <h2
                 className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"}`}
