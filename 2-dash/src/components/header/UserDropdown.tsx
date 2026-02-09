@@ -5,6 +5,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
+import {
+  ChevronDownIcon,
+  UserCircleIcon,
+  SignOutIcon,
+  InfoIcon,
+  SettingIcon,
+} from "@/icons/index";
 
 export default function UserDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,14 +32,38 @@ export default function UserDropdown() {
           <Image src="/user/user_kenji.JPG" alt="user" width={44} height={44} />
         </span>
         <span className="block mr-1 font-medium text0theme-sm">Kenji</span>
-        <Image
-          src="/userdropdown/angle-down.svg"
-          alt="userbutton"
-          width={18}
-          height={20}
-          className="rotate-180"
-        />
+        <ChevronDownIcon />
       </button>
+      <Dropdown>
+        <div>
+          <span></span>
+          <span></span>
+        </div>
+        <ul>
+          <li>
+            <Dropdown>
+              <UserCircleIcon />
+              EditProfile
+            </Dropdown>
+          </li>
+          <li>
+            <Dropdown>
+              <SettingIcon />
+              Account settings
+            </Dropdown>
+          </li>
+          <li>
+            <Dropdown>
+              <InfoIcon />
+              Support
+            </Dropdown>
+          </li>
+        </ul>
+        <Link>
+          <SignOutIcon />
+          Signout
+        </Link>
+      </Dropdown>
     </div>
   );
 }
