@@ -271,7 +271,7 @@ const AppSidebar: React.FC = () => {
   }, [openSubmenu]);
 
   // open or close submenu index=>submenu item, menuType main / others
-  const handleSubmenuToggle = (index: numnber, menuType: "main" | "others") => {
+  const handleSubmenuToggle = (index: number, menuType: "main" | "others") => {
     setOpenSubmenu((prevOpenSubmenu) => {
       if (
         prevOpenSubmenu &&
@@ -283,6 +283,9 @@ const AppSidebar: React.FC = () => {
       return { type: menuType, index };
     });
   };
+
+  // DEBUG
+  console.log("isMobileOpen", isMobileOpen);
 
   return (
     <aside
