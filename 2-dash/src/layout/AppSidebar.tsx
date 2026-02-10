@@ -194,7 +194,11 @@ const AppSidebar: React.FC = () => {
                       <span className="flex items-center gap-1 ml-auto">
                         {subItem.new && (
                           <span
-                            className={`ml-auto ${isActive(subItem.path) ? "menu-dropdown-badge-active" : "menu-dropdown-badge-inactive"} menu-dropdown-badge`}
+                            className={`ml-auto ${
+                              isActive(subItem.path)
+                                ? "menu-dropdown-badge-active"
+                                : "menu-dropdown-badge-inactive"
+                            } menu-dropdown-badge`}
                           >
                             new
                           </span>
@@ -243,7 +247,10 @@ const AppSidebar: React.FC = () => {
         if (nav.subItems) {
           nav.subItems.forEach((subItem) => {
             if (isActive(subItem.path)) {
-              setOpenSubmenu({ type: menuType as "main" | "others", index });
+              setOpenSubmenu({
+                type: menuType as "main" | "others",
+                index,
+              });
               subMenuMatched = true;
             }
           });
@@ -286,13 +293,15 @@ const AppSidebar: React.FC = () => {
 
   // DEBUG
   console.log("isMobileOpen", isMobileOpen);
+  console.log("isExpanded", isExpanded);
+  console.log("isHovered", isHovered);
 
   return (
     <aside
       className={`fixed mt-15 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
 	    ${
         isExpanded || isMobileOpen
-          ? "w-[290px]"
+          ? "w-[290]"
           : isHovered
             ? "w-[290px]"
             : "w-[90px]"
@@ -303,7 +312,9 @@ const AppSidebar: React.FC = () => {
     >
       {/* aside is semantics for sidebar */}
       <div
-        className={`py-8 flex ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"}`}
+        className={`py-8 flex ${
+          !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
+        }`}
       >
         <Link href="/">
           {isExpanded || isHovered || isMobileOpen ? (
@@ -340,7 +351,7 @@ const AppSidebar: React.FC = () => {
             <div>
               {/* menu or horizontal dots */}
               <h2
-                className={`mb-4 tet-xs uppercase flex leadin-[20px] text-gray-400 ${
+                className={`mb-4 tet-xs uppercase flex leading-[20px] text-gray-400 ${
                   !isExpanded && !isHovered
                     ? "lg:justify-center"
                     : "justify-start"
@@ -358,7 +369,11 @@ const AppSidebar: React.FC = () => {
             <div className="">
               {/* others or horizontal dots */}
               <h2
-                className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"}`}
+                className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
+                  !isExpanded && !isHovered
+                    ? "lg:justify-center"
+                    : "justify-start"
+                }`}
               >
                 {isExpanded || isHovered || isMobileOpen ? (
                   "others"
