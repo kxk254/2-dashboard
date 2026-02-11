@@ -11,7 +11,7 @@ import {
 export const EcommerceMetrics = () => {
   console.log(BoxIconLine);
   return (
-    <div className="bg-red-200 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
       {/* metric Item Start */}
       <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
         <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800">
@@ -35,17 +35,22 @@ export const EcommerceMetrics = () => {
 
       {/* metric Item Start */}
 
-      <div>
-        <div>
-          <BoxIconLine />
+      <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800">
+          <BoxIconLine className="text-gray-800 dark:text-white/90" />
         </div>
-        <div>
+        <div className="flex items-end justify-between mt-5">
           <div>
-            <span>this is span</span>
-            <h4></h4>
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              Orders
+            </span>
+            <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
+              5,329
+            </h4>
           </div>
-          <Badge>
-            <ArrowDownIcon />
+          <Badge color="error">
+            <ArrowDownIcon className="text-error-500" />
+            9.05%
           </Badge>
         </div>
       </div>
