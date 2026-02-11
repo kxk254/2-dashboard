@@ -51,51 +51,97 @@ export default function MonthlyTarget() {
     setIsOpen(!isOpen);
   }
   function closeDropdown() {
-    setIsOpen(flase);
+    setIsOpen(false);
   }
   return (
-    <div>
-      <div>
-        <div>
+    <div className="rounded-2xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-white/3">
+      <div className="px-5 pt-5 bg-white shadow-default rounded-2xl pb-11 dark:bg-gray-900 sm:px-6 sm:pt-6">
+        <div className="flex justify-between">
           <div>
-            <h3>APEXCHART</h3>
-            <p></p>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
+              Monthly Target
+            </h3>
+            <p className="mt-1 font-normal text-gray-500 dark:text-white/70">
+              Target you've set for each month
+            </p>
           </div>
 
-          <div>
-            <button></button>
-            <Dropdown>
-              <DropdownItem></DropdownItem>
-              <DropdownItem></DropdownItem>
+          <div className="relative inline-block">
+            <button onClick={toggleDropdown} className="dropdown-toggle">
+              <MoreDotIcon className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" />
+            </button>
+            <Dropdown
+              isOpen={isOpen}
+              onClose={closeDropdown}
+              className="w-40 p-2"
+            >
+              <DropdownItem
+                tag="a"
+                onItemClick={closeDropdown}
+                className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+              >
+                View More
+              </DropdownItem>
+              <DropdownItem
+                tag="a"
+                onItemClick={closeDropdown}
+                className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+              >
+                Delete
+              </DropdownItem>
             </Dropdown>
           </div>
         </div>
 
-        <div>
-          <div>{/*           <ReactApexChart />*/}</div>
-          <span></span>
+        <div className="relative">
+          <div className="max-h-[330px]">
+            <ReactApexChart
+              options={options}
+              series={series}
+              type="radialBar"
+              height={330}
+            />
+          </div>
+          <span className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-[95%] rounded-full bg-success-50 px-3 py-1 text-xs font-medium text-success-600 dark:bg-success-500/15 dark:text-success-500">
+            +10%
+          </span>
         </div>
-
+        <p className="mx-auto mt-10 w-full max-w-[380px] text0center text-sm text-gray-500 sm:text-base">
+          You earn $3287 today, it&apos;s higher than last month. Keep up your
+          good work!
+        </p>
+      </div>
+      <div className="flex items-center justify-center gap-5 px-6 py-3.5 sm:gap-8 sm:py-5">
         <div>
-          <p></p>
-          <p className="rotate-180 ">
-            <ArrowUpIcon />
+          <p className="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">
+            Target
+          </p>
+          <p className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
+            $20K
+            <ArrowUpIcon className="rotate-180 text-red-700 " />
           </p>
         </div>
-        <div></div>
+        <div className="w-px bg-gray-400 h-7 dark:bg-gray-600"></div>
         <div>
-          <p></p>
-          <p>
-            <ArrowUpIcon />
+          <p className="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">
+            Revenue
+          </p>
+          <p className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
+            $20K
+            <ArrowUpIcon className="text-green-700" />
           </p>
         </div>
 
-        <div></div>
+        <div className="w-px bg-gray-400 h-7 dark:bg-gray-600"></div>
 
         <div>
-          <p></p>
-          <p>
-            <ArrowUpIcon />
+          <p className="mb-1 text-center text-gray-500 text-theme-xs dark:text-gray-400 sm:text-sm">
+            Today
+          </p>
+          <p className="flex items-center justify-center gap-1 text-base font-semibold text-gray-800 dark:text-white/90 sm:text-lg">
+            {" "}
+            $20K
+            <ArrowUpIcon className="text-green-700" />
           </p>
         </div>
       </div>
