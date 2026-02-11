@@ -11,17 +11,24 @@ import {
 export const EcommerceMetrics = () => {
   console.log(BoxIconLine);
   return (
-    <div>
+    <div className="bg-red-200 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
       {/* metric Item Start */}
-      <div>
-        <div></div>
+      <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800">
+          <GroupIcon className="text-gray-800 size-6 dark:text-white/90" />
+        </div>
 
-        <div>
-          <div>
-            <span></span>
-            <h4></h4>
+        <div className="flex items-end justify-between mt-5">
+          <div className="text-sm text-gray-500 dark:text-gray-400">
+            <span>Customers</span>
+            <h4 className="mt-2 font-bold text-gray-800 text-title-sm dark:text-white/90">
+              3,782
+            </h4>
           </div>
-          <Badge></Badge>
+          <Badge color="success">
+            <ArrowUpIcon />
+            11.01%
+          </Badge>
         </div>
       </div>
       {/* metric Item End */}
@@ -34,7 +41,7 @@ export const EcommerceMetrics = () => {
         </div>
         <div>
           <div>
-            <span></span>
+            <span>this is span</span>
             <h4></h4>
           </div>
           <Badge>
