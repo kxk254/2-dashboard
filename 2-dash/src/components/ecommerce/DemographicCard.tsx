@@ -19,11 +19,13 @@ export default function DemographicCard() {
   }
 
   return (
-    <div>
+    <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
       <div className="flex justify-between">
-        {/* Customers Demographics */}
-        <div className="text-lg font-semibold text-gray-800 dark:text-white/90">
-          <h3>Customers Demographic</h3>
+        <div>
+          {/* Customers Demographics */}
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
+            Customers Demographic
+          </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
             Number of customer based on country
           </p>
@@ -45,68 +47,82 @@ export default function DemographicCard() {
             </DropdownItem>
             <DropdownItem
               onItemClick={closeDropdown}
-              className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300>Delete</DropdownItem"
+              className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
             >
               Delete
             </DropdownItem>
           </Dropdown>
         </div>
-        <div className="px-4 py-6 my-6 overflow-hidden border border-gray-200 rounded-2xl bg-gray-50 dark:border-gray-800 dark:bg-gray-900 sm:px-6">
-          <div
-            id="mapOne"
-            className="mapOne map-btn -mx-4 -my-6 h-[212px] w-[252px] 2xsm:w-[370px] xsm:w-[358px] sm:-mx-6 md:w-[668px] lg:w-[634px] xl:w-[393px] 2xl:w-[554px]"
-          >
-            <CountryMap />
+      </div>
+      <div className="px-4 py-6 my-6 overflow-hidden border border-gray-200 rounded-2xl bg-gray-50 dark:border-gray-800 dark:bg-gray-900 sm:px-6">
+        <div
+          id="mapOne"
+          className="mapOne map-btn -mx-4 -my-6 h-[212px] w-[252px] 2xsm:w-[370px] xsm:w-[358px] sm:-mx-6 md:w-[668px] lg:w-[634px] xl:w-[393px] 2xl:w-[554px]"
+        >
+          <CountryMap />
+        </div>
+      </div>
+
+      <div className="space-y-5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="items-center w-full rounded-full max-w-8">
+              <Image
+                width={48}
+                height={48}
+                src="/images/country/country-01.svg"
+                alt="usa"
+                className="w-full"
+              />
+            </div>
+            <div>
+              <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
+                USA
+              </p>
+              <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
+                2,379 Customers
+              </span>
+            </div>
+          </div>
+
+          <div className="flex w-full max-w-[140px] items-center gap-3">
+            <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
+              <div className="absolute left-0 top-0 flex h-full w-[79px] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium  text-white"></div>
+            </div>
+            <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
+              79%
+            </p>
           </div>
         </div>
 
-        <div>
-          <div>
-            <div>
-              <div>
-                <Image
-                  width={48}
-                  height={48}
-                  src="/images/country/country-01.svg"
-                  D
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
-                  USA
-                </p>
-                <span classNam="block text-gray-500 text-theme-xs dark:text-gray-400">
-                  2,379 Customers
-                </span>
-              </div>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="items-center w-full rounded-full max-w-8">
+              <Image
+                width={48}
+                height={48}
+                className="w-full"
+                src="/images/country/country-02.svg"
+                alt="france"
+              />
             </div>
-
             <div>
-              <div className="relative block h-2 w-full max-w-[800px] rounded-sm bg-gray-200 dark:bg-gray-800">
-                <div className="absolute left-0 top-0 flex h-full w-[79px] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium  text-white"></div>
-              </div>
-              <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
-                79%
+              <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
+                France
               </p>
+              <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
+                589 Customers
+              </span>
             </div>
           </div>
 
-          <div>
-            <div>
-              <div>
-                <img />
-              </div>
+          <div className="flex w-full max-w-[140px] items-center gap-3">
+            <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
+              <div className="absolute left-0 top-0 flex h-full w-[23px] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium  text-white"></div>
             </div>
-            <div>
-              <p>France</p>
-              <span>589 Customers</span>
-            </div>
-          </div>
-
-          <div>
-            <div></div>
-            <p>23%</p>
+            <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
+              23%
+            </p>
           </div>
         </div>
       </div>

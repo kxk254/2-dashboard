@@ -60,6 +60,7 @@ import SettingIcon from "./settings.svg";
 import BrightnessIcon from "./brightness.svg";
 import MoonIcon from "./moon.svg";
 import NoticeBellIcon from "./notice-bell.svg";
+import OrderIcon from "./orders.svg";
 
 export {
   DownloadIcon,
@@ -124,4 +125,5 @@ export {
   BrightnessIcon,
   MoonIcon,
   NoticeBellIcon,
+  OrderIcon,
 };
