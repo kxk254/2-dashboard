@@ -64,17 +64,31 @@ export default function DemographicCard() {
           <div>
             <div>
               <div>
-                <img />
+                <Image
+                  width={48}
+                  height={48}
+                  src="/images/country/country-01.svg"
+                  D
+                  className="w-full"
+                />
               </div>
               <div>
-                <p></p>
-                <span></span>
+                <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
+                  USA
+                </p>
+                <span classNam="block text-gray-500 text-theme-xs dark:text-gray-400">
+                  2,379 Customers
+                </span>
               </div>
             </div>
 
             <div>
-              <div></div>
-              <p>79%</p>
+              <div className="relative block h-2 w-full max-w-[800px] rounded-sm bg-gray-200 dark:bg-gray-800">
+                <div className="absolute left-0 top-0 flex h-full w-[79px] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium  text-white"></div>
+              </div>
+              <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
+                79%
+              </p>
             </div>
           </div>
 
