@@ -25,7 +25,7 @@ export default function SignInForm() {
           <div>
             <h1>Sign In</h1>
             <p>Enter your email and password to sign in!</p>
-          </div>{" "}
+          </div>
           <div>
             <div>
               <div></div>
@@ -60,19 +60,21 @@ export default function SignInForm() {
                 </div>
                 <div>
                   <div>
-                    <Checkbox />
+                    <Checkbox checked={isChecked} onChange={setIsChecked} />
                     <span></span>
                   </div>
-                  <Link></Link>
+                  <Link href="/"></Link>
                 </div>
                 <div>
-                  <Button>Sign in </Button>
+                  <Button className="w-full" size="sm">
+                    Sign in{" "}
+                  </Button>
                 </div>
               </div>
             </form>
             <div>
               <p>
-                <Link></Link>
+                <Link href="/"></Link>
               </p>
             </div>
           </div>
