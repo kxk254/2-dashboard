@@ -41,3 +41,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
  1. items-center → vertical centering (good)
 
  1. justify-center → horizontal centering (missing)
+
+
+ npm install --legacy-peer-deps
