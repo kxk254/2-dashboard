@@ -1,21 +1,21 @@
 "use client";
 
-import Checkbox from "@/components/form/input/Checkbox";
-import Input from "@/components/form/input/InputField";
-import Label from "@/components/form/Label";
-import Button from "@/components/ui/button/Button";
+import Checkbox from "@/src/components/form/input/Checkbox";
+import Input from "@/src/components/form/input/InputField";
+import Label from "@/src/components/form/Label";
+import Button from "@/src/components/ui/button/Button";
 import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
 import React, { useState } from "react";
 
 export default function SignInForm() {
-  const [] = useState();
-  const [] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <div className="flex flex-col flex-1 lg:w-1/2 w-full">
       <div className="w-full max-w-md sm:pt-10 mx-auto mb-5">
-        <Link>
+        <Link href="/">
           <ChevronLeftIcon />
           Back to dashboard
         </Link>
@@ -46,12 +46,15 @@ export default function SignInForm() {
               <div>
                 <div>
                   <Label></Label>
-                  <Input />
+                  <Input placeholder="info@gmail.com" type="email" />
                 </div>
                 <div>
                   <Label></Label>
                   <div>
-                    <Input />
+                    <Input
+                      placeholder="Enter your password"
+                      type={showPassword ? "text" : "password"}
+                    />
                     <span></span>
                   </div>
                 </div>
