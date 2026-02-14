@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { ChevronRightIcon } from "@/icons/index";
 
 interface BreadcrumbProps {
   pageTitle: string;
@@ -14,7 +15,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
           <li>
             <Link>
               Home
-              <svg></svg>
+              <ChevronRightIcon />
             </Link>
           </li>
           <li>{pageTitle}</li>
