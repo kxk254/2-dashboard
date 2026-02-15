@@ -131,9 +131,108 @@
 
 ---app/(admin)/(others-pages)/(profile)
      @/components/user-profile/UserAddressCard";
+       ../../hooks/useModal";
+       ../ui/modal";
+       ../ui/button/Button";
+       ../form/input/InputField";
+       ../form/Label";
+
      @/components/user-profile/UserInfoCard";
+       ../../hooks/useModal";
+       ../ui/modal";
+       ../ui/button/Button";
+       ../form/input/InputField";
+       ../form/Label";
+
      @/components/user-profile/UserMetaCard";
+       ../../hooks/useModal";
+       ../ui/modal";
+       ../ui/button/Button";
+       ../form/input/InputField";
+       ../form/Label";
 
 
+---app/(admin)/(ui-elements)/alerts
+     @/components/common/ComponentCard";
+     @/components/common/PageBreadCrumb";
+     @/components/ui/alert/Alert";
+
+---app/(admin)/(ui-elements)/avatars
+     @/components/common/ComponentCard";
+     @/components/common/PageBreadCrumb";
+     @/components/ui/avatar/Avatar";
+
+---app/(admin)/(ui-elements)/badge
+     @/components/common/PageBreadCrumb";
+     @/components/ui/badge/Badge";
+
+---app/(admin)/(ui-elements)/buttons
+     @/components/common/ComponentCard";
+     @/components/common/PageBreadCrumb";
+     @/components/ui/button/Button";
+
+---app/(admin)/(ui-elements)/images
+     @/components/common/ComponentCard";
+     @/components/common/PageBreadCrumb";
+     @/components/ui/images/ResponsiveImage";
+     @/components/ui/images/ThreeColumnImageGrid";
+     @/components/ui/images/TwoColumnImageGrid";
+
+---app/(admin)/(ui-elements)/modals
+     @/components/common/PageBreadCrumb";
+     @/components/example/ModalExample/DefaultModal";
+       ../../common/ComponentCard";
+
+     @/components/example/ModalExample/FormInModal";
+       ../../common/ComponentCard";
+       ../../ui/button/Button";
+       ../../ui/modal";
+       ../../form/Label";
+       ../../form/input/InputField";
+       @/hooks/useModal";
+
+     @/components/example/ModalExample/FullScreenModal";
+       @/hooks/useModal";
+       ../../common/ComponentCard";
+       ../../ui/button/Button";
+       ../../ui/modal";
+
+     @/components/example/ModalExample/ModalBasedAlerts";
+       @/hooks/useModal";
+       ../../common/ComponentCard";
+       ../../ui/modal";
+
+     @/components/example/ModalExample/VerticallyCenteredModal";
+       @/hooks/useModal";
+       ../../common/ComponentCard";
+       ../../ui/button/Button";
+       ../../ui/modal";
+
+---app/(admin)/(ui-elements)/videos
+     @/components/common/PageBreadCrumb";
+
+     @/components/ui/video/VideosExample";
+        ./YouTubeEmbed";
+        @/components/common/ComponentCard";
+
+---app/(full-width-pages)/(auth)/signin
+     @/components/auth/SignInForm";
+       @/components/form/input/Checkbox";
+       @/components/form/input/InputField";
+       @/components/form/Label";
+       @/components/ui/button/Button";
+
+---app/(full-width-pages)/(auth)/layout 
+     @/components/common/GridShape";
+     @/components/common/ThemeTogglerTwo";
+     @/context/ThemeContext";
+
+---app/(full-width-pages)/(auth)/signup
+     @/components/auth/SignUpForm";
+       @/components/form/input/Checkbox";
+       @/components/form/input/InputField";
+       @/components/form/Label";
 
 
+---app/(full-width-pages)/(error-pges)
+     @/components/common/GridShape";
