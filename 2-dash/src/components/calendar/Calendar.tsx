@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import {
@@ -11,8 +11,8 @@ import {
   EventClickArg,
   EventCotentArg,
 } from "@fullcalendar/core";
-import { useModal } from "@/hooks/useModal";
-import { Modal } from "@/components/ui/modal";
+import { useModal } from "@/src/hooks/useModal";
+import { Modal } from "@/src/components/ui/modal";
 
 interface CalendarEvent extends EventInput {
   extendedProps: {
@@ -39,9 +39,32 @@ const Calendar: React.FC = () => {
     Warning: "warning",
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // Initialize with some events
+    setEvents([
+      {
+        id: "1",
+        title: "Event Conf",
+        start: new Date().toISOString().split("T")[0],
+        extendedProps: { calendar: "Danger" },
+      },
+      {
+        id: "2",
+        title: "Meeting",
+        start: new Date(Date.now() + 86400000).toISOString().split("T")[0],
+        extendedProps: { calendar: "Success" },
+      },
+      {
+        id: "3",
+        title: "Workshop",
+        start: new Date(Date.now() + 172800000).toISOString().split("T")[0],
+        end: new Date(Date.now() + 259200000).toISOString().split("T")[0],
+        extendedProps: { calendar: "Primary" },
+      },
+    ]);
+  }, []);
 
-  const handeDateselect = (selectinfo: DateSelectArg) => {
+  const handleDateSelect = (selectinfo: DateSelectArg) => {
     resetModalFields();
     setEventStartDate(selectinfo.startstr);
     setEventEndDate(selectinfo.endStr || selectInfo.startStr);
@@ -99,69 +122,93 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div>
-      <div>
-        <FullCalendar />
+    <div className="">
+      <div className="">
+        <FullCalendar
+          ref={calendarRef}
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          headerToolbar={{
+            left: "prev,next addEventButton",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek,timeGridDay",
+          }}
+          events={events}
+          selectable={true}
+          select={handleDateSelect}
+          eventClick={handleEventClick}
+          eventContent={renderEventContent}
+          customButtons={{
+            addEventButton: { text: "Add Event +", click: openModal },
+          }}
+        />
       </div>
-      <Modal>
-        <div>
-          <h5></h5>
-          <p></p>
-        </div>
-        <div>
+      {/* Add Event Pop Up */}
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        className="max-w-[700px] p-6 lg:p-10"
+      >
+        <div className="">
           <div>
-            <div></div>
+            <h5 className="mb-2 font-semibold text-gray-800 modal-title text-theme-xl dark:text-white/90 lg:text-2xl">
+              {selectedEvent ? "Edit Event" : "Add Event"}
+            </h5>
+            <p className="">
+              Plan your next big moment: schedule or edit and event to stay on
+              track
+            </p>
           </div>
-          <div>
-            <label></label>
+          {/* Event Title */}
+          <div className="">
             <div>
               <div>
-                <div>
-                  <label>
-                    <span>
-                      <input />
-                      <span>
-                        <span></span>
+                <label></label>
+                <input />
+              </div>
+            </div>
+            {/* Event Color */}
+            <div className="">
+              <label className=""></label>
+              <div className="">
+                <div className="">
+                  <div className="">
+                    <label className="">
+                      <span className="">
+                        <input className="" />
+                        <span className="">
+                          <span className=""></span>
+                        </span>
                       </span>
-                    </span>
-                    {key}
-                  </label>
+                      {/* key */}
+                    </label>
+                  </div>
                 </div>
+              </div>
+            </div>
+            {/* Start Date */}
+            <div className="">
+              <label className="">Enter Start Date</label>
+              <div className="">
+                <input className="" />
+              </div>
+            </div>
+
+            {/* End Date */}
+            <div className="">
+              <label className="">Enter End Date</label>
+              <div className="">
+                <input className="" />
               </div>
             </div>
           </div>
 
-          <div>
-            <label></label>
-            <div>
-              <input />
-            </div>
-          </div>
-
-          <div>
-            <label></label>
-            <div>
-              <input />
-            </div>
-          </div>
-
-          <div>
-            <label></label>
-            <div>
-              <input />
-            </div>
-          </div>
-
-          <div>
-            <label></label>
-          </div>
-          <div>
-            <input />
-          </div>
-
-          <div>
-            <button></button>
-            <button></button>
+          {/* Close Button */}
+          <div className="">
+            <button className="">Close</button>
+            <button className="">
+              {selectedEvent ? "Update Changes" : "Add Event"}
+            </button>
           </div>
         </div>
       </Modal>
@@ -172,10 +219,12 @@ const Calendar: React.FC = () => {
 const renderEventContent = (eventInfo: EventContentArg) => {
   const colorClass = `fc-bg-${eventInfo.event.extendedProps.calendar.toLowerCase()}`;
   return (
-    <div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div
+      className={`event-fc-color flex fc-event-main ${colorClass} p-1 rounded-sm`}
+    >
+      <div className="fc-daygrid-event-dot"></div>
+      <div className="fc-event-time">{eventInfo.timeText}</div>
+      <div className="fc-event-title">{eventInfo.event.title}</div>
     </div>
   );
 };
