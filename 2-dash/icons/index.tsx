@@ -63,6 +63,7 @@ import NoticeBellIcon from "./notice-bell.svg";
 import OrderIcon from "./orders.svg";
 import GoogleIcon from "./google-icon.svg";
 import TwitterXIcon from "./twitter-x.svg";
+import ChevronRightIcon from "./chevron-right.svg";
 
 export {
   DownloadIcon,
@@ -130,4 +131,5 @@ export {
   OrderIcon,
   GoogleIcon,
   TwitterXIcon,
+  ChevronRightIcon,
 };

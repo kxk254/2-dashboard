@@ -42,7 +42,7 @@ export const Modal: React.FC<ModalProps> = ({
       document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.stye.overflow = "unset";
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 

@@ -13,7 +13,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
       <nav>
         <ol>
           <li>
-            <Link>
+            <Link href="/">
               Home
               <ChevronRightIcon />
             </Link>
