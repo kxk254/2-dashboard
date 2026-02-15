@@ -61,6 +61,8 @@ import BrightnessIcon from "./brightness.svg";
 import MoonIcon from "./moon.svg";
 import NoticeBellIcon from "./notice-bell.svg";
 import OrderIcon from "./orders.svg";
+import GoogleIcon from "./google-icon.svg";
+import TwitterXIcon from "./twitter-x.svg";
 
 export {
   DownloadIcon,
@@ -126,4 +128,6 @@ export {
   MoonIcon,
   NoticeBellIcon,
   OrderIcon,
+  GoogleIcon,
+  TwitterXIcon,
 };
