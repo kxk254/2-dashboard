@@ -1,9 +1,9 @@
 "use client";
 
-import Checkbox from "@/components/form/input/Checkbox";
-import Input from "@/components/form/input/InputFild";
-import Label from "@/components/form/Label";
-import { ChevronLefticon, EyeCloseIcon, EyeIcon } from "@/icons/index";
+import Checkbox from "@/src/components/form/input/Checkbox";
+import Input from "@/src/components/form/input/InputFild";
+import Label from "@/src/components/form/Label";
+import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons/index";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -14,8 +14,8 @@ export default function SignUpForm() {
   return (
     <div>
       <div>
-        <Link>
-          <ChevronLefticon />
+        <Link href="/">
+          <ChevronLeftIcon />
         </Link>
       </div>
       {/* Section 2 */}
@@ -43,7 +43,7 @@ export default function SignUpForm() {
 
           <div>
             <p>
-              <Link>Sign In</Link>
+              <Link href="/">Sign In</Link>
             </p>
           </div>
         </div>
