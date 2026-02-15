@@ -8,17 +8,24 @@ interface BreadcrumbProps {
 
 const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
   return (
-    <div>
-      <h2>{pageTitle}</h2>
+    <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-white/90">
+        {pageTitle}
+      </h2>
       <nav>
-        <ol>
+        <ol className="flex items-center gap-1.5">
           <li>
-            <Link href="/">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
+            >
               Home
-              <ChevronRightIcon />
+              <ChevronRightIcon className="stroke-current" />
             </Link>
           </li>
-          <li>{pageTitle}</li>
+          <li className="text-sm text-gray-800 dark:text-white/90">
+            {pageTitle}
+          </li>
         </ol>
       </nav>
     </div>

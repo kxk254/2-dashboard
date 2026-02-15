@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   description: "Soliton Core Systems",
 };
 
-export default function FromElements() {
+export default function FormElements() {
   return (
     <div>
-      <PageBreadcrumb pageTitle="From Elements" />
+      <PageBreadcrumb pageTitle="Form Elements" />
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
         <div className="space-y-6">
           <DefaultInputs />
