@@ -4,7 +4,7 @@ interface Option {
   label: string;
 }
 interface SelectProps {
-  option: Option[];
+  options: Option[];
   placeholder?: stirng;
   onChange: (value: string) => void;
   className?: string;

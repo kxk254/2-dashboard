@@ -65,6 +65,7 @@ import GoogleIcon from "./google-icon.svg";
 import TwitterXIcon from "./twitter-x.svg";
 import ChevronRightIcon from "./chevron-right.svg";
 import MasterCardIcon from "./master-card.svg";
+import UploadIcon from "./upload.svg";
 
 export {
   DownloadIcon,
@@ -134,4 +135,5 @@ export {
   TwitterXIcon,
   ChevronRightIcon,
   MasterCardIcon,
+  UploadIcon,
 };
