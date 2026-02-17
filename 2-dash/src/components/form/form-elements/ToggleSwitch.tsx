@@ -10,7 +10,7 @@ export default function ToggleSwitch() {
 
   return (
     <ComponentCard title="Toggle switch input">
-      <div className="flex gap-4">
+      <div className="flex gap-4 mb-4">
         <Switch
           label="Default"
           defaultChecked={true}
@@ -22,7 +22,7 @@ export default function ToggleSwitch() {
           onChange={handleSwitchChange}
         />
         <Switch label="Disabled" disabled={true} />
-      </div>
+      </div>{" "}
       <div className="flex gap-4">
         <Switch
           label="Default"

@@ -98,9 +98,14 @@ export default function LineChartOne() {
     { name: "Revenue", data: [40, 30, 50, 40, 55, 40, 70, 100, 120, 150, 140] },
   ];
   return (
-    <div>
-      <div>
-        <ReactApexChart />
+    <div className="max-w-full overflow-x-auto custom-scrollbar">
+      <div id="chartEight" className="min-w-[1000px]">
+        <ReactApexChart
+          options={options}
+          series={series}
+          type="area"
+          height={310}
+        />
       </div>
     </div>
   );
