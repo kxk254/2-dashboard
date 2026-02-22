@@ -15,11 +15,11 @@ const TextArea: ReactFC<TextareaProps> = ({
   placeholder = "Enter your message",
   rows = 3,
   value = "",
-  onchange,
+  onChange,
   className = "",
   disabled = false,
   error = false,
-  hing = "",
+  hint = "",
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (onChange) {
@@ -57,4 +57,4 @@ const TextArea: ReactFC<TextareaProps> = ({
   );
 };
 
-export default TextareaProps;
+export default TextArea;
