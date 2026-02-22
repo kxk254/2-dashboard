@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
   BoxCubeIcon,
-  CalenderIcon,
+  CalendarIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontalDots,
@@ -34,9 +34,9 @@ const navItems: NavItem[] = [
     subItems: [{ name: "Ecommerce", path: "/", pro: false }],
   },
   {
-    icon: <CalenderIcon />,
-    name: "Calender",
-    path: "/calender",
+    icon: <CalendarIcon />,
+    name: "Calendar",
+    path: "/calendar",
   },
   {
     icon: <UserCircleIcon />,
@@ -68,8 +68,8 @@ const othersItems: NavItem[] = [
     icon: <PieChartIcon />,
     name: "Charts",
     subItems: [
-      { name: "line chart", path: "/line-chart", pro: false },
-      { name: "bar chart", path: "/bar-chart", pro: false },
+      { name: "Line Chart", path: "/line-chart", pro: false },
+      { name: "Bar Chart", path: "/bar-chart", pro: false },
     ],
   },
   {
@@ -77,7 +77,7 @@ const othersItems: NavItem[] = [
     name: "UI Elements",
     subItems: [
       { name: "Alerts", path: "/alerts", pro: false },
-      { name: "Avatar", path: "/avatar", pro: false },
+      { name: "Avatar", path: "/avatars", pro: false },
       { name: "Badge", path: "/badge", pro: false },
       { name: "Buttons", path: "/buttons", pro: false },
       { name: "Images", path: "/images", pro: false },
@@ -179,7 +179,7 @@ const AppSidebar: React.FC = () => {
                     : "0px",
               }}
             >
-              <ul className="mt-2 space-y-2 mll-9">
+              <ul className="mt-2 space-y-2 ml-9">
                 {nav.subItems.map((subItem) => (
                   <li key={subItem.name}>
                     <Link
@@ -298,7 +298,7 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside
-      className={`fixed mt-15 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
+      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all dark:text-white/80 duration-300 ease-in-out z-50 border-r border-gray-200 
 	    ${
         isExpanded || isMobileOpen
           ? "w-[290]"

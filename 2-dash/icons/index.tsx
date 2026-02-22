@@ -31,7 +31,7 @@ import PaperPlaneIcon from "./paper-plane.svg";
 import LockIcon from "./lock.svg";
 import EnvelopeIcon from "./envelope.svg";
 import UserIcon from "./user-line.svg";
-import CalenderIcon from "./calender-line.svg";
+import CalendarIcon from "./calender-line.svg";
 import EyeIcon from "./eye.svg";
 import EyeCloseIcon from "./eye-close.svg";
 import TimeIcon from "./time.svg";
@@ -64,6 +64,8 @@ import OrderIcon from "./orders.svg";
 import GoogleIcon from "./google-icon.svg";
 import TwitterXIcon from "./twitter-x.svg";
 import ChevronRightIcon from "./chevron-right.svg";
+import MasterCardIcon from "./master-card.svg";
+import UploadIcon from "./upload.svg";
 
 export {
   DownloadIcon,
@@ -100,7 +102,7 @@ export {
   EnvelopeIcon,
   LockIcon,
   UserIcon,
-  CalenderIcon,
+  CalendarIcon,
   EyeIcon,
   EyeCloseIcon,
   TimeIcon,
@@ -132,4 +134,6 @@ export {
   GoogleIcon,
   TwitterXIcon,
   ChevronRightIcon,
+  MasterCardIcon,
+  UploadIcon,
 };
